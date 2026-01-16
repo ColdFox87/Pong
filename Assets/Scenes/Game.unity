@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 180940711}
   - component: {fileID: 180940710}
   - component: {fileID: 180940709}
+  - component: {fileID: 180940713}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -374,6 +375,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180940713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180940708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d9754ee4da4224b82297f64fc06b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallMovement
+  moveSpeed: 4
+  directionX: -1
+  directionY: 1
 --- !u!1 &202501288
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,9 +492,9 @@ GameObject:
   - component: {fileID: 243478204}
   - component: {fileID: 243478205}
   - component: {fileID: 243478206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Bound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1345,9 +1361,9 @@ GameObject:
   - component: {fileID: 921246937}
   - component: {fileID: 921246938}
   - component: {fileID: 921246939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom
-  m_TagString: Untagged
+  m_TagString: Bound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1816,7 +1832,7 @@ GameObject:
   - component: {fileID: 1173186182}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1994,7 +2010,7 @@ GameObject:
   - component: {fileID: 2044009784}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

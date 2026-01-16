@@ -14,4 +14,10 @@ public class BallMovement : MonoBehaviour
     {
         transform.Translate(moveSpeed * Time.deltaTime * new Vector3(directionX, directionY));
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Bound")) directionY *= -1;
+        else if(collision.gameObject.CompareTag("Player")) directionX *= -1;
+    }
 }
