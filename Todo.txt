@@ -1,6 +1,4 @@
 --- Todo ---
-# Player Movement
-# Hitboxes
 # Ball
 # Score System
 # SFX
@@ -23,4 +21,6 @@
 
 --- Done ---
 # Basic Game Scene
+# Player Movement
+# Hitboxes
 ------------
