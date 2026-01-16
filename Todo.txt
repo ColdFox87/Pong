@@ -1,5 +1,10 @@
 --- Todo ---
 # Ball
+    - Direction Changing
+    - Bounds
+    - Respaw
+    - Random Start DirectionY (1 or -1)
+
 # Score System
 # SFX
 
