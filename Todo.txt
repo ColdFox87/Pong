@@ -1,0 +1,26 @@
+--- Todo ---
+# Player Movement
+# Hitboxes
+# Ball
+# Score System
+# SFX
+
+# Menu Screen
+# Player x A.I. Mode
+# Customization (Skins and Colors)
+# Power Ups (Double Speed, Dash, Inverted Controls, Etc...)
+
+## Config Screen
+# Volume Level
+# Remap Keys
+# Screen Resolution
+# Multilingual Support (Portuguese, Spanish)
+------------
+
+
+
+
+
+--- Done ---
+# Basic Game Scene
+------------
