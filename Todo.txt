@@ -1,5 +1,4 @@
 --- Todo ---
-# Ball
 # Score System
 # SFX
 
@@ -23,4 +22,12 @@
 # Basic Game Scene
 # Player Movement
 # Hitboxes
+
+# Ball
+ - Direction Changing
+ - Bounds
+ - Respaw
+ - Random Start DirectionY (1 or -1)
+
+# Game Manager
 ------------
