@@ -20,4 +20,13 @@ public class BallMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Bound")) directionY *= -1;
         else if(collision.gameObject.CompareTag("Player")) directionX *= -1;
     }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Goal"))
+        {
+            if(directionX > 0) Debug.Log("P1 Goal!");
+            else  Debug.Log("P2 Goal");
+        }
+    }
 }

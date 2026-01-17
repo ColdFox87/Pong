@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bound
+  - Goal
   layers:
   - Default
   - TransparentFX
