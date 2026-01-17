@@ -1,13 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
+    GameManager gameManager;
     [SerializeField] float moveSpeed;
-    [SerializeField] int directionX;
+    public int directionX;
     [SerializeField] int directionY;
     void Start()
     {
-        
+        gameManager = FindFirstObjectByType<GameManager>();
+        directionY = (Random.Range(0, 2) == 1) ? 1 : -1;
     }
 
     void Update()
@@ -25,8 +28,7 @@ public class BallMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Goal"))
         {
-            if(directionX > 0) Debug.Log("P1 Goal!");
-            else  Debug.Log("P2 Goal");
+            gameManager.Goal(gameObject, directionX);
         }
     }
 }
