@@ -1,5 +1,8 @@
 --- Todo ---
 # Score System
+ - (Done) Canvas
+ - Reset Game After 5 Points
+
 # SFX
 
 # Menu Screen
