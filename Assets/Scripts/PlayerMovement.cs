@@ -23,4 +23,29 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(moveSpeed * Time.deltaTime * Vector3.down);
         }
     }
+
+    public void ResetPositionY()
+    {
+        transform.position = new Vector3(transform.position.x, 0);
+    }
+
+    public void DisableAction(string action)
+    {
+        switch(action)
+        {
+            case "Movement":
+                moveAction.Disable();
+                break;
+        }
+    }
+
+    public void EnableAction(string action)
+    {
+        switch(action)
+        {
+            case "Movement":
+                moveAction.Enable();
+                break;
+        }
+    }
 }
