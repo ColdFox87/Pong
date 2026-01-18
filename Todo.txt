@@ -1,8 +1,5 @@
 --- Todo ---
-# Score System
- - (Done) Canvas
- - Reset Game After 5 Points
-
+# Player2 Controls
 # SFX
 
 # Menu Screen
@@ -33,4 +30,8 @@
  - Random Start DirectionY (1 or -1)
 
 # Game Manager
+
+# Score System
+ - Canvas
+ - Reset Game After X Points
 ------------

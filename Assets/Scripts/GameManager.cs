@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private static WaitForSeconds _waitForSeconds3 = new WaitForSeconds(3);
+    private static readonly WaitForSeconds _waitForSeconds3 = new(3);
     [SerializeField] GameObject ballPrefab;
     [SerializeField] GameObject player1;
 
@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int scoreLimit;
 
     // Game Over Things
-    [SerializeField] TMP_Text txtGameOver, txtWinner;
-    [SerializeField] Image imgGameOverBg;
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] TMP_Text txtWinner;
 
     void Start()
     {
@@ -48,10 +48,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameOver()
     {
-        imgGameOverBg.gameObject.SetActive(true);
-        txtGameOver.gameObject.SetActive(true);
         txtWinner.text = (scoreP1 > scoreP2) ? "P1 WINS" : "P2 WINS";
-        txtWinner.gameObject.SetActive(true);
+        gameOverScreen.SetActive(true);
 
         player1.GetComponent<PlayerMovement>().DisableAction("Movement");
 
@@ -65,9 +63,7 @@ public class GameManager : MonoBehaviour
         scoreP1 = scoreP2 = 0;
         txtScoreP1.text = txtScoreP2.text = "0";
 
-        txtGameOver.gameObject.SetActive(false);
-        txtWinner.gameObject.SetActive(false);
-        imgGameOverBg.gameObject.SetActive(false);
+        gameOverScreen.SetActive(false);
 
         player1.GetComponent<PlayerMovement>().ResetPositionY();
 
