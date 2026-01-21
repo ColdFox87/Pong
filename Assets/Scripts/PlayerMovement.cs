@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
+        moveAction = InputSystem.actions.FindActionMap(gameObject.name).FindAction("Movement");
     }
 
     void Update()

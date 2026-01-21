@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private static readonly WaitForSeconds _waitForSeconds3 = new(3);
     [SerializeField] GameObject ballPrefab;
-    [SerializeField] GameObject player1;
+    [SerializeField] PlayerMovement playerMovement1;
+    [SerializeField] PlayerMovement playerMovement2;
 
     // Score Things
     int scoreP1, scoreP2;
@@ -51,7 +52,8 @@ public class GameManager : MonoBehaviour
         txtWinner.text = (scoreP1 > scoreP2) ? "P1 WINS" : "P2 WINS";
         gameOverScreen.SetActive(true);
 
-        player1.GetComponent<PlayerMovement>().DisableAction("Movement");
+        playerMovement1.DisableAction("Movement");
+        playerMovement2.DisableAction("Movement");
 
         yield return _waitForSeconds3;
 
@@ -65,9 +67,11 @@ public class GameManager : MonoBehaviour
 
         gameOverScreen.SetActive(false);
 
-        player1.GetComponent<PlayerMovement>().ResetPositionY();
+        playerMovement1.ResetPositionY();
+        playerMovement2.ResetPositionY();
 
-        player1.GetComponent<PlayerMovement>().EnableAction("Movement");
+        playerMovement1.EnableAction("Movement");
+        playerMovement2.EnableAction("Movement");
         InstantiateNewBall(-1);
     }
 }

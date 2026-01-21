@@ -1,5 +1,4 @@
 --- Todo ---
-# Player2 Controls
 # SFX
 
 # Menu Screen
@@ -34,4 +33,6 @@
 # Score System
  - Canvas
  - Reset Game After X Points
+
+# Player2 Controls
 ------------
