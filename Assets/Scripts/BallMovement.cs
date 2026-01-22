@@ -22,12 +22,15 @@ public class BallMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Bound")) directionY *= -1;
         else if(collision.gameObject.CompareTag("Player")) directionX *= -1;
+
+        SoundManager.PlaySound(SoundType.BALL);
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Goal"))
         {
+            SoundManager.PlaySound(SoundType.GOAL);
             gameManager.Goal(gameObject, directionX);
         }
     }

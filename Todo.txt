@@ -1,6 +1,4 @@
 --- Todo ---
-# SFX
-
 # Menu Screen
 # Player x A.I. Mode
 # Customization (Skins and Colors)
@@ -35,4 +33,5 @@
  - Reset Game After X Points
 
 # Player2 Controls
+# SFX
 ------------
