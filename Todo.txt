@@ -1,4 +1,6 @@
 --- Todo ---
+# Refactor GameManager (Make it Static)
+
 # Menu Screen
 # Player x A.I. Mode
 # Customization (Skins and Colors)
