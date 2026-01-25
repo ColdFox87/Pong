@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         moveAction = InputSystem.actions.FindActionMap(gameObject.name).FindAction("Movement");
+        moveAction.Enable();
     }
 
     void Update()

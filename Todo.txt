@@ -1,7 +1,7 @@
 --- Todo ---
 # Refactor GameManager (Make it Static)
+# SceneManager?
 
-# Menu Screen
 # Player x A.I. Mode
 # Customization (Skins and Colors)
 # Power Ups (Double Speed, Dash, Inverted Controls, Etc...)
@@ -36,4 +36,5 @@
 
 # Player2 Controls
 # SFX
+# Menu Screen
 ------------
