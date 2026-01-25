@@ -1,11 +1,8 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private static readonly WaitForSeconds _waitForSeconds3 = new(3);
     [SerializeField] GameObject ballPrefab;
     [SerializeField] PlayerMovement playerMovement1;
     [SerializeField] PlayerMovement playerMovement2;
@@ -30,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         UpdateScore((directionX > 0) ? 1 : 2);
 
-        if(scoreP1 == scoreLimit || scoreP2 == scoreLimit) StartCoroutine(GameOver());
+        if(scoreP1 == scoreLimit || scoreP2 == scoreLimit) GameOver();
         else InstantiateNewBall(directionX);
     }
 
@@ -47,20 +44,16 @@ public class GameManager : MonoBehaviour
         newBall.GetComponent<BallMovement>().directionX = directionX;
     }
 
-    IEnumerator GameOver()
+    void GameOver()
     {
         txtWinner.text = (scoreP1 > scoreP2) ? "P1 WINS" : "P2 WINS";
         gameOverScreen.SetActive(true);
 
         playerMovement1.DisableAction("Movement");
         playerMovement2.DisableAction("Movement");
-
-        yield return _waitForSeconds3;
-
-        RestartGame();
     }
 
-    void RestartGame()
+    public void RestartGame()
     {
         scoreP1 = scoreP2 = 0;
         txtScoreP1.text = txtScoreP2.text = "0";
