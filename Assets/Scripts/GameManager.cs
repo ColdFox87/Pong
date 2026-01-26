@@ -1,70 +1,30 @@
-using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject ballPrefab;
-    [SerializeField] PlayerMovement playerMovement1;
-    [SerializeField] PlayerMovement playerMovement2;
+    [SerializeField] GameObject prefabBall;
+    GameObject activeBall;
+    int[] score;
 
-    // Score Things
-    int scoreP1, scoreP2;
-    [SerializeField] TMP_Text txtScoreP1, txtScoreP2;
-    [SerializeField] int scoreLimit;
+    void OnEnable() => GameEvents.OnGoalScored += GoalHandler;
+    void OnDisable() => GameEvents.OnGoalScored -= GoalHandler;
+    void Start() => score = new int[] {0, 0};
 
-    // Game Over Things
-    [SerializeField] GameObject gameOverScreen;
-    [SerializeField] TMP_Text txtWinner;
-
-    void Start()
-    {
-        scoreP1 = scoreP2 = 0;
-    }
-
-    public void Goal(GameObject activeBall, int directionX)
+    void GoalHandler(int player)
     {
         Destroy(activeBall);
 
-        UpdateScore((directionX > 0) ? 1 : 2);
+        score[player - 1]++; // Player can be 1 or 2 but score array goes 0 to 1
+        GameEvents.ScoreChanged(score);
 
-        if(scoreP1 == scoreLimit || scoreP2 == scoreLimit) GameOver();
-        else InstantiateNewBall(directionX);
+        if(score[player - 1] == 3) GameEvents.GameEnded(player);
+        else activeBall = SpawnNewBall(player == 1 ? 1 : -1);
     }
 
-    void UpdateScore(int player)
+    GameObject SpawnNewBall(int directionX)
     {
-        if(player == 1) txtScoreP1.text = (++scoreP1).ToString();
-        else txtScoreP2.text = (++scoreP2).ToString();
-    }
-
-    void InstantiateNewBall(int directionX)
-    {
-        GameObject newBall = Instantiate(ballPrefab, Vector3.zero, Quaternion.identity);
-        // Player who conceded the goal starts next.
+        GameObject newBall = Instantiate(prefabBall, Vector3.zero, Quaternion.identity);
         newBall.GetComponent<BallMovement>().directionX = directionX;
-    }
-
-    void GameOver()
-    {
-        txtWinner.text = (scoreP1 > scoreP2) ? "P1 WINS" : "P2 WINS";
-        gameOverScreen.SetActive(true);
-
-        playerMovement1.DisableAction("Movement");
-        playerMovement2.DisableAction("Movement");
-    }
-
-    public void RestartGame()
-    {
-        scoreP1 = scoreP2 = 0;
-        txtScoreP1.text = txtScoreP2.text = "0";
-
-        gameOverScreen.SetActive(false);
-
-        playerMovement1.ResetPositionY();
-        playerMovement2.ResetPositionY();
-
-        playerMovement1.EnableAction("Movement");
-        playerMovement2.EnableAction("Movement");
-        InstantiateNewBall(-1);
+        return newBall;
     }
 }

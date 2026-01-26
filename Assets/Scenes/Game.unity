@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef09b8dc9745bf4b97dfab1fa3b4e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverButtons
-  gameManager: {fileID: 1891085001}
+  gameManager: {fileID: 0}
 --- !u!1 &139634237
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ Transform:
   m_GameObject: {fileID: 139634237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.9, y: 0, z: 0}
+  m_LocalPosition: {x: -9.5, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 9.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -900,6 +900,7 @@ Transform:
   m_Children:
   - {fileID: 1891085002}
   - {fileID: 658586246}
+  - {fileID: 1038460343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &293782823
@@ -1701,13 +1702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad99728d1430ff45a05391b91d873e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  soundList:
-  - name: BALL
-    sounds:
-    - {fileID: 8300000, guid: 19546233c32109e4eb85ac678f562ec8, type: 3}
-  - name: GOAL
-    sounds:
-    - {fileID: 8300000, guid: c99c4eeede37ebd4bb0dcd223096a81c, type: 3}
+  sounds:
+  - Name: BallHit
+    clip: {fileID: 8300000, guid: 19546233c32109e4eb85ac678f562ec8, type: 3}
+  - Name: Goal
+    clip: {fileID: 8300000, guid: c99c4eeede37ebd4bb0dcd223096a81c, type: 3}
 --- !u!82 &658586248
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2358,6 +2357,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1038460342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038460343}
+  - component: {fileID: 1038460344}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038460343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038460342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 267926649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038460344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038460342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466784bb615e03140be2cea31fc06e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  canvas: {fileID: 856985818}
+  gameOverScreen: {fileID: 694093020}
 --- !u!1 &1082021177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d3de5fedf8a46428ca579d81e1ffd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  player: 1
   moveSpeed: 4
 --- !u!50 &1173186183
 Rigidbody2D:
@@ -2730,7 +2776,7 @@ GameObject:
   - component: {fileID: 1364932604}
   m_Layer: 5
   m_Name: Txt Score P2
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3004,7 +3050,7 @@ GameObject:
   - component: {fileID: 1653601939}
   m_Layer: 5
   m_Name: Txt Score P1
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3411,7 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef09b8dc9745bf4b97dfab1fa3b4e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverButtons
-  gameManager: {fileID: 1891085001}
+  gameManager: {fileID: 0}
 --- !u!1 &1833493518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891085002}
-  - component: {fileID: 1891085001}
+  - component: {fileID: 1891085003}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3504,26 +3550,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1891085001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891085000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a401b3db05f05c14686c288a7144c04c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  ballPrefab: {fileID: 5354598051808191708, guid: 2945cda64dc1f064aaacbd04ae243f6c, type: 3}
-  playerMovement1: {fileID: 1173186182}
-  playerMovement2: {fileID: 2044009786}
-  txtScoreP1: {fileID: 1653601939}
-  txtScoreP2: {fileID: 1364932604}
-  scoreLimit: 3
-  gameOverScreen: {fileID: 694093020}
-  txtWinner: {fileID: 1419260517}
 --- !u!4 &1891085002
 Transform:
   m_ObjectHideFlags: 0
@@ -3539,6 +3565,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 267926649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891085003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891085000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bfd73b643855c44a0f32129acf71b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  prefabBall: {fileID: 5354598051808191708, guid: 2945cda64dc1f064aaacbd04ae243f6c, type: 3}
 --- !u!1 &2044009781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,6 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d3de5fedf8a46428ca579d81e1ffd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  player: 2
   moveSpeed: 4
 --- !u!1 &2086246628
 GameObject:
@@ -3744,7 +3784,7 @@ Transform:
   m_GameObject: {fileID: 2086246628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.9, y: 0, z: 0}
+  m_LocalPosition: {x: 9.5, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 9.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,55 +1,45 @@
 using System;
 using UnityEngine;
 
-public enum SoundType
-{
+public enum SoundType {
     BALL,
     GOAL
 }
 
-[RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
-
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] SoundList[] soundList;
-    private static SoundManager instance;
     AudioSource audioSource;
+    [SerializeField] Sound[] sounds;
 
-    void Awake()
-    {
-        instance = this;
-    }
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-#if UNITY_EDITOR
     void OnEnable()
     {
-        string[] names = Enum.GetNames(typeof(SoundType));
-        Array.Resize(ref soundList, names.Length);
-
-        for(int i = 0; i < soundList.Length; i++)
-        {
-            soundList[i].name = names[i];
-        }
+        GameEvents.OnBallHit += OnBallHitHandler;
+        GameEvents.OnGoalScored += OnGoalScoredHandler;
     }
-#endif
 
-    public static void PlaySound(SoundType sound, float volume = 1)
+    void OnDisable()
     {
-        AudioClip[] clips = instance.soundList[(int)sound].Sounds;
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-        instance.audioSource.PlayOneShot(randomClip, volume);
+        GameEvents.OnBallHit -= OnBallHitHandler;
+        GameEvents.OnGoalScored -= OnGoalScoredHandler;
     }
+
+    void Start() => audioSource = gameObject.GetComponent<AudioSource>();
+
+    void PlaySound(SoundType soundType)
+    {
+        AudioClip clip = sounds[(int)soundType].Clip;
+        audioSource.PlayOneShot(clip);
+    }
+
+    void OnBallHitHandler() => PlaySound(SoundType.BALL);
+    void OnGoalScoredHandler(int _) => PlaySound(SoundType.GOAL);
 }
 
 [Serializable]
-public struct SoundList
+public struct Sound
 {
-    public AudioClip[] Sounds { get => sounds; }
-    public string name;
-    [SerializeField] AudioClip[] sounds;
+    public string Name;
+    public readonly AudioClip Clip => clip;
+    [SerializeField] AudioClip clip;
 }

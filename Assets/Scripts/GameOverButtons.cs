@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOverButtons : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
-    public void Restart() => gameManager.RestartGame();
+    public void Restart() => SceneManager.LoadScene("Game");
     public void Menu() => SceneManager.LoadScene("Menu");
 }

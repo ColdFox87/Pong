@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bound
   - Goal
+  - Score
   layers:
   - Default
   - TransparentFX
