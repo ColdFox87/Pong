@@ -355,7 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef09b8dc9745bf4b97dfab1fa3b4e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverButtons
-  gameManager: {fileID: 0}
 --- !u!1 &139634237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,7 +3456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef09b8dc9745bf4b97dfab1fa3b4e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverButtons
-  gameManager: {fileID: 0}
 --- !u!1 &1833493518
 GameObject:
   m_ObjectHideFlags: 0
